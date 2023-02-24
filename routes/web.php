@@ -24,6 +24,16 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+// Route::prefix('admin')->middleware('role:admin')->group(function () {
+//     Route::get('/', function () {
+//         return 'Admin Page';
+//     });
+// });
+// Route::prefix('masyarakat')->middleware('role:user')->group(function () {
+//     Route::get('/', function () {
+//         return 'User Page';
+//     });
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -35,4 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
